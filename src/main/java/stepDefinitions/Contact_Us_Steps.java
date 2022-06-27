@@ -10,8 +10,10 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 
 public class Contact_Us_Steps {
     private WebDriver driver;
@@ -28,12 +30,16 @@ public class Contact_Us_Steps {
 
     @After
     public void tearDown() {
+        driver.quit();
         System.out.println("✅ Closed Chrome");
-        //driver.quit();
     }
 
     public String generateRandomNumber(int length) {
         return RandomStringUtils.randomNumeric(length);
+    }
+
+    public String generateRandomString(int length) {
+        return RandomStringUtils.randomAlphabetic(length);
     }
 
     @Given("I access the WebDriver University contact us page")
@@ -53,22 +59,23 @@ public class Contact_Us_Steps {
     }
     @And("I enter a unique email address")
     public void i_enter_a_unique_email_address() {
-        driver.findElement(By.xpath("//input[@name='email']")).sendKeys("jdoe23@mail.com");
+        driver.findElement(By.xpath("//input[@name='email']")).sendKeys("AutoEmail" + generateRandomNumber(7) + "@mail.com");
         System.out.println("✅ Entered email address");
     }
     @And("I enter a unique comment")
     public void i_enter_a_unique_comment() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        driver.findElement(By.xpath("//textarea[@name='message']")).sendKeys("Hello! " + generateRandomString(20));
+        System.out.println("✅ Entered generated message");
     }
     @And("I click the submit button")
     public void i_click_the_submit_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        driver.findElement(By.xpath("//input[@value='SUBMIT']")).click();
+        System.out.println("✅ Pressed submit button");
     }
     @Then("I should be presented with a successful contact us submission message")
     public void i_should_be_presented_with_a_successful_contact_us_submission_message() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        WebElement contactUs_Submission_Message = driver.findElement(By.xpath("//div[@id='contact_reply']/h1"));
+        Assert.assertEquals(contactUs_Submission_Message.getText(), "Thank You for your Message!");
+        System.out.println("✅ Received submission message");
     }
 }
