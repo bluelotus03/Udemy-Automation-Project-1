@@ -6,6 +6,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
@@ -28,7 +29,11 @@ public class Contact_Us_Steps {
     @After
     public void tearDown() {
         System.out.println("✅ Closed Chrome");
-        driver.quit();
+        //driver.quit();
+    }
+
+    public String generateRandomNumber(int length) {
+        return RandomStringUtils.randomNumeric(length);
     }
 
     @Given("I access the WebDriver University contact us page")
@@ -38,17 +43,18 @@ public class Contact_Us_Steps {
     }
     @When("I enter a unique first name")
     public void i_enter_a_unique_first_name() {
-        driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys("Joe");
+        driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys("AutoFN" + generateRandomNumber(5));
+        System.out.println("✅ Entered generated first name");
     }
     @And("I enter a unique last name")
     public void i_enter_a_unique_last_name() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        driver.findElement(By.xpath("//input[@name='last_name']")).sendKeys("AutoLN" + generateRandomNumber(5));
+        System.out.println("✅ Entered generated last name");
     }
     @And("I enter a unique email address")
     public void i_enter_a_unique_email_address() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        driver.findElement(By.xpath("//input[@name='email']")).sendKeys("jdoe23@mail.com");
+        System.out.println("✅ Entered email address");
     }
     @And("I enter a unique comment")
     public void i_enter_a_unique_comment() {
