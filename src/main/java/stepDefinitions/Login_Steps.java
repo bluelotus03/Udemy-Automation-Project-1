@@ -36,35 +36,16 @@ public class Login_Steps {
         System.out.println("✅ Accessed the webpage");
     }
 
-    /** Successful Login Step Definitions **/
-    @When("I enter the correct username of an existing account {word}")
-    public void i_enter_the_correct_username_of_an_existing_account(String username) {
+    @When("I enter a username {word}")
+    public void i_enter_a_username(String username) {
         driver.findElement(By.id("text")).sendKeys(username);
         System.out.println("✅ Added username: " + username);
     }
-    @And("I enter the correct password for that username {word}")
-    public void i_enter_the_correct_password_for_that_username(String password) {
+    @And("I enter a password {word}")
+    public void i_enter_a_password(String password) {
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys(password);
         System.out.println("✅ Added password: " + password);
     }
-    /** ------------------------------- **/
-
-    /** Unsuccessful Login Step Definitions - Incorrect Username **/
-    @When("I enter a username that is misspelled {word}")
-    public void i_enter_a_username_that_is_misspelled(String username) {
-        driver.findElement(By.xpath("//input[@id='text']")).sendKeys(username);
-        System.out.println("✅ Added username: " + username);
-    }
-    /** ------------------------------- **/
-
-
-    /** Unsuccessful Login Step Definitions - Incorrect Password **/
-    @And("I enter an incorrect password for that username {word}")
-    public void i_enter_an_incorrect_password_for_that_username(String password) {
-        driver.findElement(By.xpath("//input[@id='password']")).sendKeys(password);
-        System.out.println("✅ Added password: " + password);
-    }
-    /** ------------------------------- **/
 
     @And("I click the login button")
     public void i_click_the_login_button() {
