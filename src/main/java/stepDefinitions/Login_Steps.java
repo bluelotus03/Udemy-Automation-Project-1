@@ -32,7 +32,7 @@ public class Login_Steps {
 
     @Given("I access the WebDriver University login page")
     public void i_access_the_web_driver_university_login_page() {
-        driver.get("https://webdriveruniversity.com/Login-Portal/Index.html");
+        driver.get("https://webdriveruniversity.com/Login-Portal/index.html");
         System.out.println("✅ Accessed the webpage");
     }
 
