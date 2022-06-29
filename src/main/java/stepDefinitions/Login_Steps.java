@@ -53,17 +53,10 @@ public class Login_Steps {
         System.out.println("✅ Pressed login button");
     }
 
-    @Then("I should be presented with a successful login popup")
-    public void i_should_be_presented_with_a_successful_login_popup() {
+    @Then("I should be presented with a login validation popup {}")
+    public void i_should_be_presented_with_a_login_validation_popup(String expectedLoginMessage) {
         String login_Message = driver.switchTo().alert().getText();
-        Assert.assertEquals(login_Message, "validation succeeded");
-        System.out.println("✅ Received submission message - succeeded");
-    }
-
-    @Then("I should be presented with a unsuccessful login popup")
-    public void i_should_be_presented_with_a_unsuccessful_login_popup() {
-        String login_Message = driver.switchTo().alert().getText();
-        Assert.assertEquals(login_Message, "validation failed");
-        System.out.println("✅ Received submission message - failed");
+        Assert.assertEquals(login_Message, expectedLoginMessage);
+        System.out.println("✅ Received submission message - " + login_Message);
     }
 }
