@@ -1,8 +1,10 @@
 @contact-us @me
 Feature: WebDriver University - Contact Us Page
 
-  Scenario: Validate Successful Submission - Unique Data
+  Background:
     Given I access the WebDriver University contact us page
+
+  Scenario: Validate Successful Submission - Unique Data
     When I enter a unique first name
     And I enter a unique last name
     And I enter a unique email address
@@ -11,7 +13,6 @@ Feature: WebDriver University - Contact Us Page
     Then I should be presented with a successful contact us submission message
 
   Scenario: Validate Successful Submission - Specific Data
-    Given I access the WebDriver University contact us page
     When I enter a specific first name Jane
     And I enter a specific last name Doe
     And I enter a specific email address jdoe32@mail.com
