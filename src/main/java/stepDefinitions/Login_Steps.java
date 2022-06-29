@@ -14,7 +14,7 @@ import org.testng.Assert;
 public class Login_Steps {
     private WebDriver driver;
 
-    @Before
+    @Before("@login")
     public void setup() {
         System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -24,7 +24,7 @@ public class Login_Steps {
         //driver.manage().window(),maximize();
     }
 
-    @After
+    @After("@login")
     public void tearDown() {
         driver.quit();
         System.out.println("✅ Closed Chrome");
