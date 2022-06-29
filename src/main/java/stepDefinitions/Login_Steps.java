@@ -74,15 +74,15 @@ public class Login_Steps {
 
     @Then("I should be presented with a successful login popup")
     public void i_should_be_presented_with_a_successful_login_popup() {
-        Alert login_Message = driver.switchTo().alert();
-        Assert.assertEquals(login_Message.getText(), "validation succeeded");
+        String login_Message = driver.switchTo().alert().getText();
+        Assert.assertEquals(login_Message, "validation succeeded");
         System.out.println("✅ Received submission message - succeeded");
     }
 
     @Then("I should be presented with a unsuccessful login popup")
     public void i_should_be_presented_with_a_unsuccessful_login_popup() {
-        Alert login_Message = driver.switchTo().alert();
-        Assert.assertEquals(login_Message.getText(), "validation failed");
+        String login_Message = driver.switchTo().alert().getText();
+        Assert.assertEquals(login_Message, "validation failed");
         System.out.println("✅ Received submission message - failed");
     }
 }
