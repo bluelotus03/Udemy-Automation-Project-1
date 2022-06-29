@@ -45,7 +45,7 @@ public class Contact_Us_Steps {
     @Given("I access the WebDriver University contact us page")
     public void i_access_the_web_driver_university_contact_us_page() {
         driver.get("https://webdriveruniversity.com/Contact-Us/contactus.html");
-        System.out.println("✅ Accessed the website");
+        System.out.println("✅ Accessed the webpage");
     }
 
     /** Unique Data Step Definitions **/
