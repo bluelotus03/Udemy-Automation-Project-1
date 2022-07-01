@@ -8,9 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Locale;
 import java.util.Properties;
 
 public class DriverFactory {
@@ -60,8 +58,8 @@ public class DriverFactory {
     }
 
     public static void cleanupDriver() {
-//        webDriver.get().quit();
-//        System.out.println("✅ Closed " + getBrowserType() + " browser");
+        webDriver.get().quit();
+        System.out.println("✅ Closed " + getBrowserType() + " browser");
         webDriver.remove();
         System.out.println("✅ Removed driver");
     }

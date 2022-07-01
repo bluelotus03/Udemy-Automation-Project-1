@@ -4,10 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import pageObject.Base_PO;
 import pageObject.Contact_Us_PO;
 
@@ -79,7 +76,6 @@ public class Contact_Us_Steps extends Base_PO {
     }
     @Then("I should be presented with a successful contact us submission message")
     public void i_should_be_presented_with_a_successful_contact_us_submission_message() {
-       // WebElement contactUs_Submission_Message = driver.findElement(By.xpath("//div[@id='contact_reply']/h1"));
         contact_us_po.validate_SuccessfulSubmission_Message();
         System.out.println("✅ Received submission message");
     }
