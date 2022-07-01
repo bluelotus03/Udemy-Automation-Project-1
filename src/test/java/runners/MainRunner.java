@@ -7,7 +7,7 @@ import org.testng.annotations.DataProvider;
 @CucumberOptions(
         features = {"classpath:features"},
         glue = {"stepDefinitions"},
-        tags = "@contact-us",
+        tags = "@me",
         monochrome = false,
         dryRun = false,
         plugin = {"pretty", "html:target/cucumber", "json:target/cucumber.json"}
