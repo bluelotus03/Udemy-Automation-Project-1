@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"classpath:features"},
         glue = {"stepDefinitions"},
-        tags = "@login",
+        tags = "@me",
         monochrome = false,
         dryRun = false,
         plugin = {"pretty", "html:target/cucumber", "json:target/cucumber.json"}
