@@ -53,6 +53,16 @@ public class Base_PO {
         wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
 
+    public void waitFor(By by){
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
+    }
+
+    public void waitFor(WebElement element){
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
     public void waitForAlert_And_ValidateText(String expectedMessage){
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.alertIsPresent());

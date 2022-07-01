@@ -60,8 +60,8 @@ public class DriverFactory {
     }
 
     public static void cleanupDriver() {
-        webDriver.get().quit();
-        System.out.println("✅ Closed " + getBrowserType() + " browser");
+//        webDriver.get().quit();
+//        System.out.println("✅ Closed " + getBrowserType() + " browser");
         webDriver.remove();
         System.out.println("✅ Removed driver");
     }

@@ -4,13 +4,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.*;
 import pageObject.Base_PO;
 import pageObject.Login_PO;
 
 public class Login_Steps extends Base_PO {
-    private WebDriver driver = getDriver();
-
     private Login_PO login_po;
     public Login_Steps(Login_PO login_po) {
         this.login_po = login_po;
