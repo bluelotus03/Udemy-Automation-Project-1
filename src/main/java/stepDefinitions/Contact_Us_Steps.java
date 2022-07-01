@@ -37,7 +37,7 @@ public class Contact_Us_Steps {
     }
     @And("I enter a unique last name")
     public void i_enter_a_unique_last_name() {
-        driver.findElement(By.xpath("//input[@name='last_name']")).sendKeys("AutoLN" + generateRandomNumber(5));
+        driver.findElement(By.xpath("//input[@name='l_name']")).sendKeys("AutoLN" + generateRandomNumber(5));
         System.out.println("✅ Entered generated last name");
     }
     @And("I enter a unique email address")
