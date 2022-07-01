@@ -6,15 +6,14 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
 import org.testng.Assert;
+import pageObject.Base_PO;
 
-import static driver.DriverFactory.getDriver;
-
-public class Login_Steps {
+public class Login_Steps extends Base_PO {
     private WebDriver driver = getDriver();
 
     @Given("I access the WebDriver University login page")
     public void i_access_the_web_driver_university_login_page() {
-        driver.get("https://webdriveruniversity.com/Login-Portal/index.html");
+        navigateTo_URL("https://webdriveruniversity.com/Login-Portal/index.html");
         System.out.println("✅ Accessed the webpage");
     }
 

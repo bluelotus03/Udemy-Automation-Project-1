@@ -4,35 +4,25 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import pageObject.Base_PO;
 
-import static driver.DriverFactory.getDriver;
-
-public class Contact_Us_Steps {
+public class Contact_Us_Steps extends Base_PO {
     private WebDriver driver = getDriver();
-
-    public String generateRandomNumber(int length) {
-        return RandomStringUtils.randomNumeric(length);
-    }
-
-    public String generateRandomString(int length) {
-        return RandomStringUtils.randomAlphabetic(length);
-    }
 
     @Given("I access the WebDriver University contact us page")
     public void i_access_the_web_driver_university_contact_us_page() {
-        driver.get("https://webdriveruniversity.com/Contact-Us/contactus.html");
+        navigateTo_URL("https://webdriveruniversity.com/Contact-Us/contactus.html");
         System.out.println("✅ Accessed the webpage");
     }
 
     /** Unique Data Step Definitions **/
     @When("I enter a unique first name")
     public void i_enter_a_unique_first_name() {
-        driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys("AutoFN" + generateRandomNumber(5));
+        sendKeys(By.xpath("//input[@name='first_name']"), "AutoFN" + generateRandomNumber(5));
         System.out.println("✅ Entered generated first name");
     }
     @And("I enter a unique last name")
