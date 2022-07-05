@@ -2,7 +2,7 @@
 My first automation project for website testing using this [Udemy course](https://www.udemy.com/course/cucumber-bdd-selenium-java-complete-automation-course/).
 
 ## Languages & Tools
-[Java] [Selenium] [Gherkin] [Maven] [Jenkins]
+[Java] [Gherkin] [Selenium] [Maven] [Jenkins]
 
 ## Jenkins
 ##### Configured a Maven project to have build parameters
